@@ -10,6 +10,7 @@ Git clone / pip install this repo somewhere:
 
 ```bash
 git clone https://github.com/karpathy/rendergit
+cd rendergit
 pip install -e .
 ```
 
