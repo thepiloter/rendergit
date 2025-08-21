@@ -50,4 +50,4 @@ I vibe coded this utility a few months ago but I keep using it very often so I f
 
 ## License
 
-Apache 2.0 go nuts
+BSD0 go nuts
