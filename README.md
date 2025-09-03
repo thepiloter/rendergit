@@ -33,6 +33,43 @@ Once open, you can toggle between two views:
 
 There's a few other smaller options, see the code.
 
+## Docker Usage
+
+If you prefer using Docker, you can build and run `rendergit` in a containerized environment:
+
+### Using Docker Compose (Recommended)
+
+```bash
+# Clone this repository
+git clone https://github.com/karpathy/rendergit
+cd rendergit
+
+# Build the Docker image
+docker-compose build
+
+# Run rendergit with any GitHub repository
+docker-compose run --rm rendergit https://github.com/karpathy/nanogpt
+```
+
+The generated HTML file will be saved in the current directory, and will automatically open in your default browser.
+
+### Using Docker directly
+
+```bash
+# Build the image
+docker build -t rendergit .
+
+# Run with a volume mount to save the output
+docker run --rm -v "$(pwd):/output" rendergit https://github.com/karpathy/nanogpt
+```
+
+### Docker Benefits
+
+- **No local dependencies**: Python, git, and all required packages are included
+- **Consistent environment**: Works the same across different operating systems
+- **Easy cleanup**: No need to manage Python virtual environments
+- **Volume mounting**: Generated HTML files are saved to your local directory
+
 ## Features
 
 - **Dual view modes** - toggle between Human and LLM views

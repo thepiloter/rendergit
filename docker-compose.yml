@@ -1,0 +1,18 @@
+services:
+  rendergit:
+    build: .
+    volumes:
+      # Mount current directory to /output for saving generated HTML files
+      - .:/output
+      # Mount a cache directory for git repositories to avoid re-cloning
+      - rendergit-cache:/tmp
+    working_dir: /output
+    environment:
+      # Ensure git works properly in container
+      - GIT_CONFIG_GLOBAL=/dev/null
+    # Override the default CMD to provide a shell for interactive use
+    # To run rendergit, use: docker-compose run --rm rendergit <github-url>
+    command: ["sh", "-c", "echo 'Usage: docker-compose run --rm rendergit <github-url>' && echo 'Example: docker-compose run --rm rendergit https://github.com/karpathy/nanogpt'"]
+
+volumes:
+  rendergit-cache:
